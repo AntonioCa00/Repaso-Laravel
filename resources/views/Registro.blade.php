@@ -9,7 +9,7 @@
         icon: 'success',
         title: 'Libro guardado con éxito',
         showConfirmButton: false,
-        timer: 1500
+        timer: 2500
         })</script>"!!}
     
 @endif
