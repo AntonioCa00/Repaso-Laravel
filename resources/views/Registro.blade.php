@@ -2,6 +2,20 @@
 
 @section('Espacio')
 
+@if (session() -> has('confirmacion'))
+
+    {!!"<script> Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Libro guardado con éxito',
+        showConfirmButton: false,
+        timer: 1500
+        })</script>"!!}
+    
+@endif
+
+
+
 <div class="container text-center mt-5">
     <h1 style="color: aliceblue">Registro de Libro</h1>
 </div>
@@ -17,26 +31,32 @@
             <div class="mb-3">
               <label class="form-label">ISBN:</label>
               <input type="number" class="form-control" name="ISBN">
+              <p class="text-danger fts-italic-bold">{{$errors -> first('ISBN')}}</p>
             </div>
             <div class="mb-3">
               <label class="form-label">Título:</label>
               <input type="text" class="form-control" name="Titulo">
+              <p class="text-danger fts-italic-bold">{{$errors -> first('Titulo')}}</p>
             </div>
             <div class="mb-3">
                 <label class="form-label">Autor:</label>
                 <input type="text" class="form-control" name="Autor">
+                <p class="text-danger fts-italic-bold">{{$errors -> first('Autor')}}</p>
             </div>
             <div class="mb-3">
                 <label class="form-label">Paginas:</label>
                 <input type="number" class="form-control" name="Paginas">
+                <p class="text-danger fts-italic-bold">{{$errors -> first('Paginas')}}</p>
             </div>
             <div class="mb-3">
                 <label class="form-label">Editorial:</label>
                 <input type="text" class="form-control" name="Editorial">
+                <p class="text-danger fts-italic-bold">{{$errors -> first('Editorial')}}</p>
             </div>
             <div class="mb-3">
                 <label class="form-label">Email Editorial:</label>
                 <input type="text" class="form-control" name="Email-Editorial">
+                <p class="text-danger fts-italic-bold">{{$errors -> first('Email-Editorial')}}</p>
             </div>
             <button type="submit" class="btn btn-primary">Guardar Libro</button>
         </form>
