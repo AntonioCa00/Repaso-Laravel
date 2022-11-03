@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{asset ('css/app.css')}}">
 
     <style type="text/css">
+    
         body{
             background-image: url('/images/fondo.jpg');
             -webkit-background-size: cover;
@@ -16,6 +17,7 @@
             -o-background-size: cover;
             background-size: cover;
         }
+
       </style>
 
     <title>Biblioteca</title>
@@ -49,14 +51,14 @@
 
     @yield('Espacio')
 
-
     <div class="alert alert-dark text-center" role="alert">
         DIE Biblioteca - Copyright© -
             <script>
             date = new Date().toLocaleDateString();
             document.write(date);
             </script>
-      </div>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 

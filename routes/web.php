@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ControladorViews;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [controladorViews::class, 'Welcome']);
+Route::get('Inicio', [controladorViews::class, 'Inicio']);
+Route::get('Regis', [controladorViews::class, 'Registro']);
 
-Route::view('Inicio','Principal');
-Route::view('Regis','Registro');
+Route::post('GuardaLibro',[controladorViews::class,'ProcessLib']);
