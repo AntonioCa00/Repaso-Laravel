@@ -30,32 +30,32 @@
 
             <div class="mb-3">
               <label class="form-label">ISBN:</label>
-              <input type="number" class="form-control" name="ISBN">
+              <input type="number" class="form-control" name="ISBN" value="{{old('ISBN')}}">
               <p class="text-danger fts-italic-bold">{{$errors -> first('ISBN')}}</p>
             </div>
             <div class="mb-3">
               <label class="form-label">Título:</label>
-              <input type="text" class="form-control" name="Titulo">
+              <input type="text" class="form-control" name="Titulo" value="{{old('Titulo')}}">
               <p class="text-danger fts-italic-bold">{{$errors -> first('Titulo')}}</p>
             </div>
             <div class="mb-3">
                 <label class="form-label">Autor:</label>
-                <input type="text" class="form-control" name="Autor">
+                <input type="text" class="form-control" name="Autor" value="{{old('Autor')}}">
                 <p class="text-danger fts-italic-bold">{{$errors -> first('Autor')}}</p>
             </div>
             <div class="mb-3">
                 <label class="form-label">Paginas:</label>
-                <input type="number" class="form-control" name="Paginas">
+                <input type="number" class="form-control" name="Paginas" value="{{old('Paginas')}}">
                 <p class="text-danger fts-italic-bold">{{$errors -> first('Paginas')}}</p>
             </div>
             <div class="mb-3">
                 <label class="form-label">Editorial:</label>
-                <input type="text" class="form-control" name="Editorial">
+                <input type="text" class="form-control" name="Editorial" value="{{old('Editorial')}}">
                 <p class="text-danger fts-italic-bold">{{$errors -> first('Editorial')}}</p>
             </div>
             <div class="mb-3">
                 <label class="form-label">Email Editorial:</label>
-                <input type="text" class="form-control" name="Email-Editorial">
+                <input type="text" class="form-control" name="Email-Editorial" value="{{old('Email-Editorial')}}">
                 <p class="text-danger fts-italic-bold">{{$errors -> first('Email-Editorial')}}</p>
             </div>
             <button type="submit" class="btn btn-primary">Guardar Libro</button>
