@@ -4,17 +4,15 @@
 
 @if (session() -> has('confirmacion'))
 
-    {!!"<script> Swal.fire({
+     {!!"<script> Swal.fire({
         position: 'center',
         icon: 'success',
         title: 'Libro guardado con éxito',
         showConfirmButton: false,
         timer: 2500
         })</script>"!!}
-    
+
 @endif
-
-
 
 <div class="container text-center mt-5">
     <h1 style="color: aliceblue">Registro de Libro</h1>
@@ -22,7 +20,7 @@
 <div class="container mt-4 col-md-6">
     <div class="card mb-5">
         <div class="card-header mb-2">
-            <h2>Datos del libro</h2>
+            <h2>Datos del libro</h2>            
         </div>
         <form action="GuardaLibro" method="post">
 
