@@ -10,6 +10,8 @@ class ControladorViews extends Controller
     public function ProcessLib(ValidadorLibros $req){
         if ($req ->isMethod('post')){
             $titulo = $req ->input('Titulo');
+
+            session()->flash('tit',$titulo);
             return redirect('Regis') -> with('confirmacion','Todo correcto');
         }        
     }

@@ -4,13 +4,15 @@
 
 @if (session() -> has('confirmacion'))
 
-     {!!"<script> Swal.fire({
+<script type="text/javascript">
+        Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Libro guardado con éxito',
+        title: 'Libro {{session('tit')}} guardado con éxito',
         showConfirmButton: false,
         timer: 2500
-        })</script>"!!}
+        })
+</script>
 
 @endif
 
