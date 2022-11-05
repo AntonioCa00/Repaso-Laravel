@@ -24,7 +24,7 @@ class ValidadorLibros extends FormRequest
     public function rules()
     {
         return [
-            'ISBN' => 'required|min:15|numeric',
+            'ISBN' => 'required|numeric|Digits_between:13,num',
             'Titulo' => 'required',
             'Autor' => 'required',
             'Paginas' => 'required|numeric',
