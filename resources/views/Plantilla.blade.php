@@ -43,7 +43,10 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="Regis">Registro de Libro</a>
-                </li>            
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="Autor">Registro de Autor</a>
+                </li>
             </div>
           </div>
          </div>

@@ -18,4 +18,11 @@ Route::get('/', [controladorViews::class, 'Welcome']);
 Route::get('Inicio', [controladorViews::class, 'Inicio']);
 Route::get('Regis', [controladorViews::class, 'Registro']);
 
+#Ruta de Autor
+Route::get('Autor',[controladorViews::class,'Autores']);
+
+#Procesar el Autor
+Route::post('GuardaAutor',[controladorViews::class,'ProcessAutor']);
+
+#Procesar el Libro 
 Route::post('GuardaLibro',[controladorViews::class,'ProcessLib']);

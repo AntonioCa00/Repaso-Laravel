@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ValidadorLibros;
+use App\Http\Requests\validadorAutor;
 
 class ControladorViews extends Controller
 {
@@ -16,6 +17,10 @@ class ControladorViews extends Controller
         }        
     }
 
+    public function ProcessAut(validadorAutor $req){
+        return redirect('Autor') -> with('confirmado','Se mando correctamente');
+    }
+
     public function Welcome(){
         return view('welcome');
     }
@@ -26,5 +31,9 @@ class ControladorViews extends Controller
 
     public function Registro(){
         return view('Registro');
+    }
+
+    public function Autores(){
+        return view('Autores');
     }
 }
