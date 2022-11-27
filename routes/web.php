@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControladorViews;
+use App\Http\Controllers\controladorBD;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,12 @@ use App\Http\Controllers\ControladorViews;
 |
 */
 
-Route::get('/', [controladorViews::class, 'Welcome']);
+
+Route::get('/',[controladorBD::class,'index']) ->name('inicio');
+
+
+
+
 Route::get('Inicio', [controladorViews::class, 'Inicio']);
 Route::get('Regis', [controladorViews::class, 'Registro']);
 
