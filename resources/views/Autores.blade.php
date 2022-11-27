@@ -19,7 +19,7 @@
 
         @endif
 
-        <form action="GuardaLibro" method="post">
+        <form action="{{route('autor.store')}}" method="post">
 
             @csrf
 
@@ -35,7 +35,7 @@
             </div>        
             <div class="mb-3">
                 <label class="form-label">No. Publicados:</label>
-                <input type="text" class="form-control" name="Nombre" value="{{old('NPublicados')}}">
+                <input type="text" class="form-control" name="NPublicados" value="{{old('NPublicados')}}">
                 <p class="text-danger fts-italic-bold">{{$errors -> first('NPublicados')}}</p>
             </div>
 

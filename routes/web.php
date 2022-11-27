@@ -15,8 +15,19 @@ use App\Http\Controllers\controladorBD;
 |
 */
 
-
+//Rutas controladorBD
+//Ruta pagina inicial
 Route::get('/',[controladorBD::class,'index']) ->name('inicio');
+
+//Rutas vistas libro
+Route::get('libro',[controladorBD::class,'create_libro'])->name('libro.create');
+
+
+//Rutas vistas autor
+Route::get('autor',[controladorBD::class,'create_autor'])->name('autor.create');
+
+//Rutas procesar autor
+Route::post('Autor',[controladorBD::class,'store_Autor']) ->name('autor.store');
 
 
 

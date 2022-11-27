@@ -26,7 +26,7 @@ class validadorAutor extends FormRequest
         return [
             'Nombre'=>'required|min:4',
             'Nacimiento'=>'required',
-            'NPublicados'=>'required|numeric|max:4'
+            'NPublicados'=>'required|numeric|max_digits:4'
         ];
     }
 }

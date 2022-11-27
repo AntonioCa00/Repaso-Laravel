@@ -42,10 +42,10 @@
                   <a class="nav-link active" aria-current="page" href="{{route('inicio')}}">Inicio</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Regis">Registro de Libro</a>
+                  <a class="nav-link" href="{{route('libro.create')}}">Registro de Libro</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Autor">Registro de Autor</a>
+                  <a class="nav-link" href="{{route('autor.create')}}">Registro de Autor</a>
                 </li>
             </div>
           </div>
