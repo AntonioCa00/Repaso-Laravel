@@ -12,10 +12,15 @@
 
         @if (session() -> has('confirmacion'))
 
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Se ha registrado el autor!</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+        <script type="text/javascript">
+            Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Libro {{session('autor')}} guardado con éxito',
+            showConfirmButton: false,
+            timer: 2500
+            })
+    </script>
 
         @endif
 

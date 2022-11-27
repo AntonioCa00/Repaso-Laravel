@@ -24,7 +24,7 @@
         <div class="card-header mb-2">
             <h2>Datos del libro</h2>            
         </div>
-        <form action="GuardaLibro" method="post">
+        <form action="{{route('libro.store')}}" method="post">
 
             @csrf
 
@@ -40,8 +40,12 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Autor:</label>
-                <input type="text" class="form-control" name="Autor" value="{{old('Autor')}}">
-                <p class="text-danger fts-italic-bold">{{$errors -> first('Autor')}}</p>
+                <select class="form-select" aria-label="Default select example" name="Autor">
+                    <option selected disabled>Selecciona un autor</option>
+                    @foreach ($Autores as $autor)
+                        <option value="{{$autor->id_autor}}">{{$autor->nombre}}</option>
+                    @endforeach
+                  </select>
             </div>
             <div class="mb-3">
                 <label class="form-label">Paginas:</label>

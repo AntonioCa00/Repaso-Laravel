@@ -25,9 +25,9 @@ class controladorBD extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create_libro()
+    public function create_autor()
     {
-        return view('Registro');
+        return view("Autores");
     }
 
     /**
@@ -35,26 +35,10 @@ class controladorBD extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create_autor()
+    public function create_libro()
     {
-        return view('Autores');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store_Libro(validadorLibros $request)
-    {
-        /*
-        DB::table('tb_libros') -> insert([
-            'ISBN'=>$request->input('ISBN'),
-            'titulo'=>$request->input('Titulo'),
-            'id_autor'=>$request->input(''),
-        ])
-        */
+        $Autores=DB::table('tb_autores')->get();
+        return view("Registro",compact('Autores'));
     }
 
     /**
@@ -73,7 +57,31 @@ class controladorBD extends Controller
             "updated_at"=>Carbon::now(), 
         ]);
 
+        session()->flash('autor',$request->input('Nombre'));
         return redirect('autor')->with('confirmacion,confirmacion');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store_Libro(validadorLibros $request)
+    {
+        
+        DB::table('tb_libros') -> insert([
+            'ISBN'=>$request->input('ISBN'),
+            'titulo'=>$request->input('Titulo'),
+            'id_autor'=>$request->input('Autor'),
+            'paginas'=>$request->input('Paginas'),
+            'editorial'=>$request->input('Editorial'),
+            'email_edit'=>$request->input('Email-Editorial'),
+            "created_at"=>Carbon::now(),
+            "updated_at"=>Carbon::now(), 
+        ]);
+        
+        return redirect('libro')->with('confirmacion,confirmacion');
     }
 
     /**
@@ -82,7 +90,18 @@ class controladorBD extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show_Autor($id)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show_Libro($id)
     {
         //
     }
@@ -93,7 +112,18 @@ class controladorBD extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit_Autor($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit_Libro($id)
     {
         //
     }

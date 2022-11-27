@@ -29,17 +29,5 @@ Route::get('autor',[controladorBD::class,'create_autor'])->name('autor.create');
 //Rutas procesar autor
 Route::post('Autor',[controladorBD::class,'store_Autor']) ->name('autor.store');
 
-
-
-
-Route::get('Inicio', [controladorViews::class, 'Inicio']);
-Route::get('Regis', [controladorViews::class, 'Registro']);
-
-#Ruta de Autor
-Route::get('Autor',[controladorViews::class,'Autores']);
-
-#Procesar el Autor
-Route::post('GuardaAutor',[controladorViews::class,'ProcessAutor']);
-
-#Procesar el Libro 
-Route::post('GuardaLibro',[controladorViews::class,'ProcessLib']);
+//Rutas procesar libro
+Route::post('Libro',[controladorBD::class,'store_Libro']) ->name('libro.store');

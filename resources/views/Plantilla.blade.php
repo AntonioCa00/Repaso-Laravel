@@ -27,7 +27,7 @@
     
     <nav class="navbar navbar-dark bg-dark fixed-top mb-2">
         <div class="container-fluid">
-          <a class="navbar-brand" href="Inicio">Biblioteca DIE</a>
+          <a class="navbar-brand" href="{{route('inicio')}}">Biblioteca DIE</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
             <span class="navbar-toggler-icon"></span>
           </button>
