@@ -44,10 +44,9 @@
                 <p class="text-danger fts-italic-bold">{{$errors -> first('NPublicados')}}</p>
             </div>
 
-            <button type="submit" class="btn btn-primary">Guardar Libro</button>
+            <button type="submit" class="btn btn-primary">Guardar Autor</button>
         </form>
     </div>
 </div>
 
-    
 @endsection

@@ -165,12 +165,37 @@ class controladorBD extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function delete_autor($id)
+    {
+        $ConsultaAut= DB::table('tb_autores')->where('id_autor',$id) ->first();
+        return view('deleteAutor',compact('ConsultaAut'));
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy_Autor($id)
+    {
+        DB::table('tb_autores') ->where('id_autor',$id)->delete();
+
+        return redirect('autor/consulta')->with('eliminado','Eliminado');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy_Libro($id)
     {
         //
     }

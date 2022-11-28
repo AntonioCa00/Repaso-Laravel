@@ -13,7 +13,7 @@
                 <th>ID:</th>
                 <th>Nombre:</th>
                 <th>Fecha Nacimiento:</th>
-                <th>° Libros Publicados:</th>
+                <th>No° Libros Publicados:</th>
                 <th>Opciones:</th>
               </tr>
             </thead>
@@ -27,7 +27,7 @@
                     <td>{{$autor->publicados}}</td>
                     <td>
                         <a href="{{route('autor.edit',$autor->id_autor)}}"><img src="\images\editar.png"></a>
-                        <a href=""><img src="\images\eliminar.png"></a>
+                        <a href="{{route('autor.delete',$autor->id_autor)}}"><img src="\images\eliminar.png"></a>
                     </td>
                 </tr>
                 @endforeach
