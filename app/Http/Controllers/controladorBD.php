@@ -170,10 +170,22 @@ class controladorBD extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete_autor($id)
+    public function delete_Autor($id)
     {
         $ConsultaAut= DB::table('tb_autores')->where('id_autor',$id) ->first();
         return view('deleteAutor',compact('ConsultaAut'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function delete_Libro($id)
+    {
+        $ConsultaLib= DB::table('tb_libros')->where('id_autor',$id) ->first();
+        return view('deleteLibro',compact('ConsultaAut'));
     }
 
     /**
@@ -197,6 +209,8 @@ class controladorBD extends Controller
      */
     public function destroy_Libro($id)
     {
-        //
+        DB::table('tb_libros') ->where('id_libro',$id)->delete();
+
+        return redirect('libro/consulta')->with('eliminado','Eliminado');
     }
 }
