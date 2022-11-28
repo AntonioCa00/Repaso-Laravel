@@ -90,9 +90,10 @@ class controladorBD extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show_Autor($id)
+    public function show_Autor()
     {
-        //
+        $ConsultaAut = DB::table('tb_autores') ->get();
+        return view('consultaAutor',compact('ConsultaAut'));
     }
 
     /**
@@ -101,9 +102,10 @@ class controladorBD extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show_Libro($id)
+    public function show_Libro()
     {
-        //
+        $ConsultaLib = DB::table('tb_libros')->get();
+        return view('consultaLibro',compact('ConsultaLib'));
     }
 
     /**
@@ -114,7 +116,8 @@ class controladorBD extends Controller
      */
     public function edit_Autor($id)
     {
-        //
+        $ConsultaAut= DB::table('tb_autores')->where('id_autor',$id) ->first();
+        return view('editAutor',compact('ConsultaAut'));
     }
 
     /**
@@ -123,9 +126,11 @@ class controladorBD extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit_Libro($id)
+    public function edit_Libro($id,$au)
     {
-        //
+        $Autores=DB::table('tb_autores')->where('id_autor',$au)->first();
+        $ConsultaLib= DB::table('tb_libros')->where('id_libro',$id) ->first();
+        return view('editLibro',compact('ConsultaLib'),compact('Autores'));
     }
 
     /**
@@ -135,7 +140,26 @@ class controladorBD extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update_Autor(validadorAutor $request, $id)
+    {
+        DB::table('tb_autores') ->where('id_autor',$id)-> update ([
+            "nombre"=>$request->input('Nombre'),
+            "nacimiento"=>$request->input('Nacimiento'),
+            "publicados"=>$request->input('NPublicados'),
+            "updated_at"=>Carbon::now(), 
+        ]);
+
+        return redirect('autor/consulta')->with('actualizar','abc');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update_Libro(Request $request, $id)
     {
         //
     }

@@ -45,7 +45,13 @@
                   <a class="nav-link" href="{{route('libro.create')}}">Registro de Libro</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="{{route('libro.show')}}">Consulta de Libros</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="{{route('autor.create')}}">Registro de Autor</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{route('autor.show')}}">Consulta de Autores</a>
                 </li>
             </div>
           </div>
