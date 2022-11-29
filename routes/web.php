@@ -22,7 +22,7 @@ Route::get('/',[controladorBD::class,'index']) ->name('inicio');
 //Rutas vistas libro
 Route::get('libro',[controladorBD::class,'create_libro'])->name('libro.create');
 Route::get('libro/consulta',[controladorBD::class,'show_Libro'])->name('libro.show');
-Route::get('libro/{id}/{au}/edit',[controladorBD::class,'edit_Libro'])->name('libro.edit');
+Route::get('libro/{id}/edit',[controladorBD::class,'edit_Libro'])->name('libro.edit');
 Route::get('libro/{id}/delete',[controladorBD::class,'delete_Libro'])->name('libro.delete');
 
 //Rutas vistas autor

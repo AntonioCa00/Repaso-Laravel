@@ -104,6 +104,13 @@ class controladorBD extends Controller
      */
     public function show_Libro()
     {
+    
+        /*
+        $sql = 'select l.id_libro as id_libro,l.isbn as isbn,l.titulo as titulo,a.nombre as autor,l.paginas as paginas,l.editorial as editorial,l.email_edit as email_edit 
+        from tb_libros as l, tb_autores as a 
+        where l.id_autor = a.id_autor;';
+        */
+        
         $ConsultaLib = DB::table('tb_libros')->get();
         return view('consultaLibro',compact('ConsultaLib'));
     }
@@ -126,9 +133,9 @@ class controladorBD extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit_Libro($id,$au)
+    public function edit_Libro($id)
     {
-        $Autores=DB::table('tb_autores')->where('id_autor',$au)->first();
+        $Autores=DB::table('tb_autores')->get();
         $ConsultaLib= DB::table('tb_libros')->where('id_libro',$id) ->first();
         return view('editLibro',compact('ConsultaLib'),compact('Autores'));
     }

@@ -1,16 +1,7 @@
 @extends('Plantilla')
 @section('Espacio')
 
-<div class="container text-center mt-5">
-    <h1 style="color: aliceblue">Registro de Autores</h1>
-</div>
-<div class="container mt-4 col-md-6">
-    <div class="card mb-5">
-        <div class="card-header mb-2">
-            <h2>Datos de Autor</h2>            
-        </div>
-
-        @if (session() -> has('confirmacion'))
+@if (session() -> has('confirmacion'))
 
         <script type="text/javascript">
             Swal.fire({
@@ -20,9 +11,18 @@
             showConfirmButton: false,
             timer: 2500
             })
-    </script>
+        </script>
 
-        @endif
+@endif
+
+<div class="container text-center mt-5">
+    <h1 style="color: aliceblue">Registro de Autores</h1>
+</div>
+<div class="container mt-4 col-md-6">
+    <div class="card mb-5">
+        <div class="card-header mb-2">
+            <h2>Datos de Autor</h2>            
+        </div>
 
         <form action="{{route('autor.store')}}" method="post">
 

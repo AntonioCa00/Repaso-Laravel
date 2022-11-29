@@ -32,7 +32,7 @@
                     <td>{{$libro->editorial}}</td>
                     <td>{{$libro->email_edit}}</td>
                     <td>
-                        <a href="{{route('libro.edit',$libro->id_libro,$libro->id_autor)}}><img src="\images\editar.png" alt=""></a>
+                        <a href="{{route('libro.edit',$libro->id_libro,$libro->id_autor)}}"><img src="\images\editar.png" alt=""></a>
                         <a href="#"><img src="\images\eliminar.png" alt=""></a>
                     </td>
                 </tr>
