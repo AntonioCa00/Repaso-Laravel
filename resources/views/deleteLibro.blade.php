@@ -14,15 +14,18 @@
             </div>
             <div class="card-body">
               <blockquote class="blockquote mb-0">
-                <p>Nombre:</p>
-                <p>Fecha de nacimiento:</p>
-                <p>Numero de libros publicados:</p>
+                <p>ISBN: {{$ConsultaLib->isbn}}</p>
+                <p>Título: {{$ConsultaLib->titulo}}</p>
+                <p>Autor: {{$ConsultaLib->autor}}</p>
+                <p>Páginas: {{$ConsultaLib->paginas}}</p>
+                <p>Editorial: {{$ConsultaLib->editorial}}</p>
+                <p>Email Editorial: {{$ConsultaLib->email_edit}}</p>
               </blockquote>
             </div>
             <div class="card-footer">
                 ¿Desea eliminar este autor?
                 <div class="button-group mt-1">
-                    <form method="post" action="">
+                    <form method="post" action="{{route('libro.destroy',$ConsultaLib->id_libro)}}">
 
                         @csrf 
                         {!!method_field('DELETE')!!}

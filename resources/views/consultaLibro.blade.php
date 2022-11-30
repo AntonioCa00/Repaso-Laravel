@@ -25,15 +25,15 @@
                 @foreach ($ConsultaLib as $libro)
                 <tr class="table-primary">
                     <th scope="row">{{$libro->id_libro}}</th>
-                    <td>{{$libro->ISBN}}</td>
+                    <td>{{$libro->isbn}}</td>
                     <td>{{$libro->titulo}}</td>
-                    <td>{{$libro->id_autor}}</td>
+                    <td>{{$libro->autor}}</td>
                     <td>{{$libro->paginas}}</td>
                     <td>{{$libro->editorial}}</td>
                     <td>{{$libro->email_edit}}</td>
                     <td>
-                        <a href="{{route('libro.edit',$libro->id_libro,$libro->id_autor)}}"><img src="\images\editar.png" alt=""></a>
-                        <a href="#"><img src="\images\eliminar.png" alt=""></a>
+                        <a href="{{route('libro.edit',$libro->id_libro)}}"><img src="\images\editar.png" alt=""></a>
+                        <a href="{{route('libro.delete',$libro->id_libro)}}"><img src="\images\eliminar.png" alt=""></a>
                     </td>
                 </tr>
                 @endforeach

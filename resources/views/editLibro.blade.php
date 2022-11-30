@@ -10,13 +10,15 @@
         <div class="card-header mb-2">
             <h2>Datos del libro</h2>            
         </div>
-        <form action="{{route('libro.store')}}" method="post">
+        <form action="{{route('libro.update',$ConsultaLib->id_libro)}}" method="post">
 
             @csrf
 
+            {!!method_field('PUT')!!}
+
             <div class="mb-3">
               <label class="form-label">ISBN:</label>
-              <input type="number" class="form-control" name="ISBN" value="{{$ConsultaLib->ISBN}}">
+              <input type="number" class="form-control" name="ISBN" value="{{$ConsultaLib->isbn}}">
               <p class="text-danger fts-italic-bold">{{$errors -> first('ISBN')}}</p>
             </div>
             <div class="mb-3">
@@ -27,7 +29,7 @@
             <div class="mb-3">
                 <label class="form-label">Autor:</label>
                 <select class="form-select" aria-label="Default select example" name="Autor">
-                    <option selected disabled value="{{$ConsultaLib->id_autor}}">Si</option>
+                    <option selected disabled value="{{$ConsultaLib->id_autor}}">{{$ConsultaLib->autor}}</option>
                     @foreach ($Autores as $autor)
                         <option value="{{$autor->id_autor}}">{{$autor->nombre}}</option>
                     @endforeach

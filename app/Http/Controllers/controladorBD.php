@@ -106,12 +106,18 @@ class controladorBD extends Controller
     {
     
         /*
-        $sql = 'select l.id_libro as id_libro,l.isbn as isbn,l.titulo as titulo,a.nombre as autor,l.paginas as paginas,l.editorial as editorial,l.email_edit as email_edit 
+        select l.id_libro as id_libro,l.isbn as isbn,l.titulo as titulo,a.nombre as autor,l.paginas as paginas,l.editorial as editorial,l.email_edit as email_edit 
         from tb_libros as l, tb_autores as a 
-        where l.id_autor = a.id_autor;';
+        where l.id_autor = a.id_autor;
+
         */
+
+         $ConsultaLib =DB::table('tb_libros')
+         ->crossJoin('tb_autores')
+         ->select('tb_libros.id_libro as id_libro', 'tb_libros.isbn as isbn', 'tb_libros.titulo as titulo', 'tb_autores.nombre as autor', 'tb_libros.paginas as paginas', 'tb_libros.editorial as editorial', 'tb_libros.email_edit as email_edit')
+         ->where('tb_libros.id_autor','=',DB::raw('tb_autores.id_autor'))
+         ->get();
         
-        $ConsultaLib = DB::table('tb_libros')->get();
         return view('consultaLibro',compact('ConsultaLib'));
     }
 
@@ -134,9 +140,18 @@ class controladorBD extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit_Libro($id)
-    {
+    {    
         $Autores=DB::table('tb_autores')->get();
-        $ConsultaLib= DB::table('tb_libros')->where('id_libro',$id) ->first();
+        $ConsultaLib =DB::table('tb_libros')
+         ->where('id_libro',$id)
+         ->crossJoin('tb_autores')
+         ->select('tb_libros.id_libro as id_libro', 'tb_libros.isbn as isbn', 'tb_libros.titulo as titulo',
+         'tb_autores.id_autor as id_autor', 'tb_autores.nombre as autor', 'tb_libros.paginas as paginas', 
+         'tb_libros.editorial as editorial', 'tb_libros.email_edit as email_edit')
+         ->where('tb_libros.id_autor','=',DB::raw('tb_autores.id_autor'))
+         ->get()
+         ->first();
+
         return view('editLibro',compact('ConsultaLib'),compact('Autores'));
     }
 
@@ -166,9 +181,19 @@ class controladorBD extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update_Libro(Request $request, $id)
+    public function update_Libro(validadorLibros $request, $id)
     {
-        //
+        DB::table('tb_libros')->where('id_libro',$id)->update([
+            'ISBN'=>$request->input('ISBN'),
+            'titulo'=>$request->input('Titulo'),
+            'id_autor'=>$request->input('Autor'),
+            'paginas'=>$request->input('Paginas'),
+            'editorial'=>$request->input('Editorial'),
+            'email_edit'=>$request->input('Email-Editorial'),
+            "updated_at"=>Carbon::now(), 
+        ]);
+
+        return redirect('libro/consulta')->with('actualizar','abc');
     }
 
     /**
@@ -191,8 +216,15 @@ class controladorBD extends Controller
      */
     public function delete_Libro($id)
     {
-        $ConsultaLib= DB::table('tb_libros')->where('id_autor',$id) ->first();
-        return view('deleteLibro',compact('ConsultaAut'));
+        $ConsultaLib =DB::table('tb_libros')
+         ->where('id_libro',$id)
+         ->crossJoin('tb_autores')
+         ->select('tb_libros.id_libro as id_libro', 'tb_libros.isbn as isbn', 'tb_libros.titulo as titulo', 'tb_autores.nombre as autor', 'tb_libros.paginas as paginas', 'tb_libros.editorial as editorial', 'tb_libros.email_edit as email_edit')
+         ->where('tb_libros.id_autor','=',DB::raw('tb_autores.id_autor'))
+         ->get()
+         ->first();
+
+        return view('deleteLibro',compact('ConsultaLib'));
     }
 
     /**
@@ -216,7 +248,7 @@ class controladorBD extends Controller
      */
     public function destroy_Libro($id)
     {
-        DB::table('tb_libros') ->where('id_libro',$id)->delete();
+        DB::table('tb_libros')->where('id_libro',$id)->delete();
 
         return redirect('libro/consulta')->with('eliminado','Eliminado');
     }
