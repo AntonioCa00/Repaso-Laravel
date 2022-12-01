@@ -4,20 +4,20 @@
 
 @if(session()->has('actualizar'))
         
-    {!!" <script>Swal.fire(
+    <script type="text/javascript">Swal.fire(
       'Actualización Correcta!',
-      'Su autor se actualizó!',
+      'Su autor {{session('nombre')}} se actualizó!',
       'success'
-    )</script>"!!}
+    )</script>
 @endif
 
 @if(session()->has('eliminado'))
         
-    {!!" <script>Swal.fire(
+    <script type="text/javascript">Swal.fire(
       'Eliminación Correcta!',
-      'Su autor se eliminó!',
+      'Su autor {{session('nombre')}} se eliminó!',
       'success'
-    )</script>"!!}
+    )</script>
 @endif
 
 <div class="container text-center mt-5">

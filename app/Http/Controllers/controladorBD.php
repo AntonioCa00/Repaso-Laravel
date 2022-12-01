@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use View;
 use App\Http\Requests\validadorAutor;
 use App\Http\Requests\validadorLibros;
 use DB;
@@ -27,7 +28,9 @@ class controladorBD extends Controller
      */
     public function create_autor()
     {
-        return view("Autores");
+        $view='Autores';
+        $view=View::make('Autores');
+        return $view;
     }
 
     /**
@@ -170,6 +173,8 @@ class controladorBD extends Controller
             "updated_at"=>Carbon::now(), 
         ]);
 
+        $nombre = $request->input('Nombre');
+        session()->flash('nombre',$nombre);
         return redirect('autor/consulta')->with('actualizar','abc');
     }
 
@@ -249,6 +254,8 @@ class controladorBD extends Controller
     {
         DB::table('tb_libros')->where('id_libro',$id)->delete();
 
+        $nombre = $request->input('Nombre');
+        session()->flash('nombre',$nombre);
         return redirect('libro/consulta')->with('eliminado','Eliminado');
     }
 }

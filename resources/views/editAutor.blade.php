@@ -32,8 +32,11 @@
                 <p class="text-danger fts-italic-bold">{{$errors -> first('NPublicados')}}</p>
             </div>
 
-            <button type="submit" class="btn btn-primary">Guardar Libro</button>
-        </form>
+            <div class="group-button mb-2">
+                <button type="submit" class="btn btn-primary">Actualizar Libro</button>
+            </form>
+            </div>
+            <a href="{{route('autor.show')}}"><button class="btn btn-danger">Regresar</button></a>
     </div>
 </div>
 

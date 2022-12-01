@@ -50,8 +50,12 @@
                 <input type="text" class="form-control" name="Email-Editorial" value="{{$ConsultaLib->email_edit}}">
                 <p class="text-danger fts-italic-bold">{{$errors -> first('Email-Editorial')}}</p>
             </div>
-            <button type="submit" class="btn btn-primary">Editar Libro</button>
+            <div class="butto-group mb-2">
+                <button type="submit" class="btn btn-primary">Editar Libro</button>
         </form>
+            </div>
+            
+        <a href="{{route('libro.show')}}"><button class="btn btn-danger">Regresar</button></a>
     </div>
 </div>
 

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('email_edit');
             $table->timestamps();
 
-            $table->foreign('id_autor')->references('id_autor')
+            $table->foreign('id_autor')->references('id_autor')->onDelete('CASCADE')
             ->on('tb_autores');
         });
     }
