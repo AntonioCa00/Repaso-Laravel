@@ -57,8 +57,7 @@ class controladorBD extends Controller
             "updated_at"=>Carbon::now(), 
         ]);
 
-        session()->flash('autor',$request->input('Nombre'));
-        return redirect('autor')->with('confirmacion,confirmacion');
+        return redirect('autor')->with('confirmacion,abc');
     }
 
     /**
@@ -69,7 +68,7 @@ class controladorBD extends Controller
      */
     public function store_Libro(validadorLibros $request)
     {
-        
+        $titulo = $request->input('Titulo');
         DB::table('tb_libros') -> insert([
             'ISBN'=>$request->input('ISBN'),
             'titulo'=>$request->input('Titulo'),
@@ -80,8 +79,8 @@ class controladorBD extends Controller
             "created_at"=>Carbon::now(),
             "updated_at"=>Carbon::now(), 
         ]);
-        
-        return redirect('libro')->with('confirmacion,confirmacion');
+        session()->flash('tit',$titulo);
+        return redirect('libro')->with('confirmacion,abc');
     }
 
     /**

@@ -29,7 +29,7 @@
             <div class="mb-3">
                 <label class="form-label">Autor:</label>
                 <select class="form-select" aria-label="Default select example" name="Autor">
-                    <option selected disabled value="{{$ConsultaLib->id_autor}}">{{$ConsultaLib->autor}}</option>
+                    <option selected value="{{$ConsultaLib->id_autor}}">{{$ConsultaLib->autor}}</option>
                     @foreach ($Autores as $autor)
                         <option value="{{$autor->id_autor}}">{{$autor->nombre}}</option>
                     @endforeach

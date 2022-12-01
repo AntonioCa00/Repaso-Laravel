@@ -1,18 +1,13 @@
 @extends('Plantilla')
 @section('Espacio')
 
-@if (session() -> has('confirmacion'))
-
-        <script type="text/javascript">
-            Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Libro {{session('autor')}} guardado con éxito',
-            showConfirmButton: false,
-            timer: 2500
-            })
-        </script>
-
+@if(session()->has('confirmacion'))
+        
+    {!!" <script>Swal.fire(
+      'Actualización Correcta!',
+      'Su libro se actualizó!',
+      'success'
+    )</script>"!!}
 @endif
 
 <div class="container text-center mt-5">

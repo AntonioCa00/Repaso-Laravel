@@ -2,6 +2,24 @@
 
 @section('Espacio')
 
+@if(session()->has('actualizar'))
+        
+    {!!" <script>Swal.fire(
+      'Actualización Correcta!',
+      'Su libro se actualizó!',
+      'success'
+    )</script>"!!}
+@endif
+
+@if(session()->has('eliminado'))
+        
+    {!!" <script>Swal.fire(
+      'Eliminación Correcta!',
+      'Su libro se eliminó!',
+      'success'
+    )</script>"!!}
+@endif
+
 <div class="container text-center mt-5">
     <h1 style="color: aliceblue">Editar Libro</h1>
 </div>
