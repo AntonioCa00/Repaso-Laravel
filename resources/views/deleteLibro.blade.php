@@ -30,6 +30,7 @@
                         @csrf 
                         {!!method_field('DELETE')!!}
         
+                        <input type="hidden" value="{{$ConsultaLib->titulo}}" name="Titulo">
                         <button class="btn btn-danger" type="submit"><img src="\images\basura.png"> Eliminar</button>
                         <a href="{{route('libro.show')}}" class="btn btn-info"><img src="\images\deshacer.png"> Regresar</a>
                     </form>

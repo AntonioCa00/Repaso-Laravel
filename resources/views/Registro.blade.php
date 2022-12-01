@@ -57,8 +57,11 @@
                 <input type="text" class="form-control" name="Email-Editorial" value="{{old('Email-Editorial')}}">
                 <p class="text-danger fts-italic-bold">{{$errors -> first('Email-Editorial')}}</p>
             </div>
-            <button type="submit" class="btn btn-primary">Guardar Libro</button>
-        </form>
+            <div class="butto-group mb-2">
+                <button type="submit" class="btn btn-primary"><img src="\images\guardar.png"> Guardar Libro</button>
+                </form>
+            </div>
+            <a href="{{route('inicio')}}"><button class="btn btn-danger"><img src="\images\deshacer.png"> Regresar</button></a>
     </div>
 </div>
 

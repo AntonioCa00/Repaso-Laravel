@@ -197,6 +197,8 @@ class controladorBD extends Controller
             "updated_at"=>Carbon::now(), 
         ]);
 
+        $titulo = $request->input('Titulo');
+        session()->flash('titulo',$titulo);
         return redirect('libro/consulta')->with('actualizar','abc');
     }
 
@@ -239,8 +241,10 @@ class controladorBD extends Controller
      */
     public function destroy_Autor($id)
     {
-        DB::table('tb_autores') ->where('id_autor',$id)->delete();
+        $nombre=DB::table('tb_autores')->select('nombre')->where('id_autor','=',$id)->get()->first();
+        DB::table('tb_autores')->where('id_autor',$id)->delete();
 
+        session()->flash('nombre',$nombre->nombre);
         return redirect('autor/consulta')->with('eliminado','Eliminado');
     }
 
@@ -252,10 +256,10 @@ class controladorBD extends Controller
      */
     public function destroy_Libro($id)
     {
+        $titulo=DB::table('tb_libros')->select('titulo')->where('id_libro','=',$id)->get()->first();
         DB::table('tb_libros')->where('id_libro',$id)->delete();
 
-        $nombre = $request->input('Nombre');
-        session()->flash('nombre',$nombre);
+        session()->flash('titulo',$titulo->titulo);
         return redirect('libro/consulta')->with('eliminado','Eliminado');
     }
 }

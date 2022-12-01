@@ -51,11 +51,11 @@
                 <p class="text-danger fts-italic-bold">{{$errors -> first('Email-Editorial')}}</p>
             </div>
             <div class="butto-group mb-2">
-                <button type="submit" class="btn btn-primary">Editar Libro</button>
-        </form>
+                <button type="submit" class="btn btn-primary"><img src="\images\guardar.png"> Editar Libro</button>
+                </form>
             </div>
             
-        <a href="{{route('libro.show')}}"><button class="btn btn-danger">Regresar</button></a>
+        <a href="{{route('libro.show')}}"><button class="btn btn-danger"><img src="\images\deshacer.png"> Regresar</button></a>
     </div>
 </div>
 

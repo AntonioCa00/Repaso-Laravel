@@ -39,8 +39,11 @@
                 <p class="text-danger fts-italic-bold">{{$errors -> first('NPublicados')}}</p>
             </div>
 
-            <button type="submit" class="btn btn-primary">Guardar Autor</button>
-        </form>
+            <div class="butto-group mb-2">
+                <button type="submit" class="btn btn-primary"><img src="\images\guardar.png"> Guardar Autor</button>
+                </form>
+            </div>
+            <a href="{{route('inicio')}}"><button class="btn btn-danger"><img src="\images\deshacer.png"> Regresar</button></a>
     </div>
 </div>
 

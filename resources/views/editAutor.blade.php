@@ -33,10 +33,10 @@
             </div>
 
             <div class="group-button mb-2">
-                <button type="submit" class="btn btn-primary">Actualizar Libro</button>
+                <button type="submit" class="btn btn-primary"><img src="\images\guardar.png"> Actualizar Libro</button>
             </form>
             </div>
-            <a href="{{route('autor.show')}}"><button class="btn btn-danger">Regresar</button></a>
+            <a href="{{route('autor.show')}}"><button class="btn btn-danger"><img src="\images\deshacer.png"> Regresar</button></a>
     </div>
 </div>
 
